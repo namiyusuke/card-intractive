@@ -8,7 +8,7 @@ class CardMouseTracker {
     this.centerY = window.innerHeight / 2;
     this.currentMouseX = 0;
     this.isSpinning = false;
-    
+
     window.addEventListener("mousemove", (e) => {
       if (!this.isSpinning) {
         this.currentMouseX = e.clientX;
@@ -39,31 +39,31 @@ class CardMouseTracker {
 
   spinAndRedirect() {
     if (this.isSpinning) return;
-    
+
     this.isSpinning = true;
-    
+
     // 現在のZ軸回転を取得
     const currentRotationZ = gsap.getProperty(this.card, "rotationZ");
-    
+
     // GSAPで滑らかな回転アニメーションを実行
     const timeline = gsap.timeline();
-    
+
     timeline
       .to(this.card, {
-        rotationY: "+=360",
+        rotationY: "+=2880",
         rotationZ: currentRotationZ,
         scale: 1.1,
-        duration: 1.2,
-        ease: "power2.inOut",
+        duration: 3.2,
+        ease: "power4.in",
         onComplete: () => {
-          window.open('https://x.com/i/spaces/1dRKZYYmqeAxB', '_blank');
+          window.open("https://x.com/i/spaces/1dRKZYYmqeAxB", "_blank");
           this.isSpinning = false;
-        }
+        },
       })
       .to(this.card, {
         scale: 1,
         duration: 0.3,
-        ease: "power2.out"
+        ease: "power2.out",
       });
   }
 }
