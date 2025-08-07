@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>スペース告知 - インタラクティブカード</title>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script defer src="app.js"></script>
     <script></script>
@@ -56,9 +57,10 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         display: flex;
         flex-direction: column;
-
+        justify-content: space-between;
         align-items: center;
         padding: 25px 20px;
+        box-sizing: border-box;
       }
 
       .event-card-front {
@@ -91,7 +93,11 @@
       .event-details {
         list-style: none;
         text-align: left;
-        margin-top: 4rem;
+        margin: 1rem 0;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .event-details li {
@@ -115,7 +121,23 @@
         box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
       }
 
-      .event-card-back .cta-button {
+      .join-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background: linear-gradient(145deg, #161616, #464646);
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        margin-top: auto;
+      }
+
+      .event-card-back .join-button {
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.3);
@@ -138,14 +160,17 @@
       <div class="event-card" data-price-card>
         <div class="event-card-inner">
           <div class="event-card-front">
-            <div class="event-title">スペース告知</div>
-            <div class="event-date">8月8日(金)</div>
-            <div class="event-status">本日開催！</div>
+            <div>
+              <div class="event-title">スペース告知</div>
+              <div class="event-date">8月8日(金)</div>
+              <div class="event-status">本日開催！</div>
+            </div>
             <ul class="event-details">
               <li>アリサカさん ✖️ 藤原さん　出演！</li>
               <li>スペースにて開催</li>
               <li>お気軽にご参加ください</li>
             </ul>
+            <button class="join-button">スペースに参加する</button>
           </div>
           <div class="event-card-back">
             <div class="event-title">詳細情報</div>
@@ -155,6 +180,7 @@
               <li>💬 テーマ: 自社サイトリニューアル</li>
               <li>🎤 質問・相談大歓迎</li>
             </ul>
+            <button class="join-button">今すぐ参加</button>
           </div>
         </div>
       </div>
